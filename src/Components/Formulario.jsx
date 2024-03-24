@@ -14,6 +14,7 @@ const Formulario = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setError(false)
 
 		//validacion telefono
 		let regex = /^[0-9]*$/;
@@ -24,11 +25,12 @@ const Formulario = () => {
 		const mailValidado = regex.test(datosContacto.mail);
 
 		//Validar inputs.
-		if (datosContacto.nombre.length < 3
+		if (datosContacto.nombre.length < 6
 			|| datosContacto.nombre.length > 20
 			|| datosContacto.apellido.length < 3
 			|| datosContacto.apellido.length > 20
 			|| !telefonoValidado
+			|| datosContacto.telefono.length < 10
 			|| !mailValidado
 		) {
 			console.log("Hubo un error con su envio")
@@ -47,9 +49,9 @@ const Formulario = () => {
 	//Aqui deberan implementar el form completo con sus validaciones
 	return (
 		<>
-		{error && <h3>Por favor verifique sus datos. </h3>}
+		{error && <h3>Por favor verifique su información nuevamente. </h3>}
 		{mostrar	?
-		<h2>Su mensaje fue recibido, nos contactaremos a la brevedad.</h2>
+		<h2>Gracias {datosContacto.nombre}, te contactaremos cuando antes vía mail.</h2>
 		:
 		<form >
 			<div>

@@ -6,6 +6,8 @@ Examen Final de Frontend III
 
 1. Se crea el Browser Routes
 2. Se agrega los Link.
+3. Se crea el formulario de contacto. 
+4. Se agregan las validaciones. (Nombre y apellido con 3 o más caracteres, pero menos de 20. Telefono solo numeros y minimo 10 digitos. Mail bien formado. )
 
 ## Indice
 
