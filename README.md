@@ -2,6 +2,11 @@
 
 Examen Final de Frontend III
 
+# Tomas Tozzi - Jorge Rivera
+
+1. Se crea el Browser Routes
+2. Se agrega los Link.
+
 ## Indice
 
 - [Requisitos](#requisitos)
