@@ -1,8 +1,20 @@
 import React from 'react'
+import { useClinicaStates } from '../Context/GlobalContext'
+
 
 const Inicio = () => {
+
+  const { state, dispatch } = useClinicaStates()
+
+
+
+
   return (
-    <div>Home</div>
+
+
+
+
+    <div>Home. Modo:{ state.darkMode ? "oscuro" : "claro" }</div>
   )
 }
 
