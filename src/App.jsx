@@ -15,8 +15,8 @@ function App() {
 					<Route element={<Layout />}>
 						<Route path="/" element={<Inicio />} />
 						<Route path="/favoritos" element={<Favoritos />} />
-						<Route path="/Detalle" element={<Detalle />} />
-						<Route path='/contacto' element={<Contacto />}/>
+						<Route path="/Detalle/:id" element={<Detalle />} />
+						<Route path="/contacto" element={<Contacto />}/>
 					</Route>
 					<Route path="*" element={<h1>Pagina No Encontrada</h1>} />
 				</Routes>

@@ -6,7 +6,6 @@ import { useClinicaStates } from '../Context/GlobalContext'
 const Navbar = () => {
 
 	const { state, dispatch } = useClinicaStates()
-   	
 
 	return (
 		<nav>
