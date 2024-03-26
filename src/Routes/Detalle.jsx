@@ -11,7 +11,7 @@ const Detalle = () => {
 	const [odontologoSeleccionado, setOdontologoSeleccionado] = useState({})
 	const url = `https://jsonplaceholder.typicode.com/users/${id}`
 
-	// const {state, dispatch} = useClinicaStates()
+	const {state, dispatch} = useClinicaStates()
 	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
 	useEffect(() => {
@@ -26,14 +26,14 @@ const Detalle = () => {
 	return (
 		<>
 			<h1>Detail Dentist id </h1>
-
-			<div>
-				<p>Name: </p>
+			<div className='card-container'>
+			<div className={state.darkMode ? "card-container card-dark" : "card-container card-white" }>
 				<p>Name: {odontologoSeleccionado.name}</p>
 				<p>Email: {odontologoSeleccionado.email}</p>
 				<p>Phone: {odontologoSeleccionado.phone}</p>
 				<p>Website: {odontologoSeleccionado.website}</p>
-				<button onClick={() => dispatch({ type: "AGREGAR_FAVORITO", payload: odontologoSeleccionado })}>Add Favorite</button>
+				<button className={state.darkMode ? "button-common-dark button-common-dark:hover" : "button-common-white button-common-white:hover"}  onClick={() => dispatch({ type: "AGREGAR_FAVORITO", payload: odontologoSeleccionado })}>Add Favorite</button>
+			</div>
 			</div>
 			{/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
 			{/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
