@@ -1,38 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { useClinicaStates } from '../Context/GlobalContext'
-import axios from 'axios'
+import { useClinicaStates } from "../Context/GlobalContext";
+import Card from "../Components/Card";
 
 const Inicio = () => {
-  let url = "https://jsonplaceholder.typicode.com/users"
-
-  const { state, dispatch } = useClinicaStates()
-
-  const [odonto, setOdonto] = useState({})
-
-  useEffect(() => {
-    const pedirOdontologos = async () => {
-      const resultado = await axios(url)
-      console.log(resultado.data)
-      setOdonto(resultado.data[0])
-    }
-    pedirOdontologos()
-  }, [])
-
-  console.log(odonto)
-
-
-
+  const { state, dispatch, odonto } = useClinicaStates();
 
 
   return (
-
-
     <>
-      <p>Odontologo: {odonto.name}</p>
       <div>Home. Modo:{state.darkMode ? "oscuro" : "claro"}</div>
+      <div className="card-container">
+      {odonto.map((odonto) => {
+      return <Card key={odonto.id} odonto={odonto}/>})}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Inicio
+export default Inicio;
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
