@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const Card = ({ state, dispatch ,odonto }) => {
 
@@ -12,7 +12,9 @@ const Card = ({ state, dispatch ,odonto }) => {
       Soy una card.
       {/* En cada card deberan mostrar en name - username y el id */}
       <div>
-        <p>Name: {odonto.name}- {odonto.username} {odonto.id}</p>
+                  <Link to={`/detalle/${odonto.id}`}>
+                  <p>Name: {odonto.name}- {odonto.username} {odonto.id}</p>
+                  </Link>
       </div>
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
