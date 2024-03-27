@@ -7,13 +7,12 @@ import axios from 'axios'
 
 const Detalle = () => {
 	const { id } = useParams()
-	console.log(id);
 	const [odontologoSeleccionado, setOdontologoSeleccionado] = useState({})
 	const url = `https://jsonplaceholder.typicode.com/users/${id}`
 
 	const {state, dispatch} = useClinicaStates()
 	// Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-
+	
 	useEffect(() => {
 		const getOdonto = async () => {
 			let odontoData = await axios.get(url);

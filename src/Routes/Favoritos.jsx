@@ -1,47 +1,44 @@
 import React, { useEffect } from "react";
 import { useClinicaStates } from "../Context/GlobalContext";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favoritos = () => {
-  const [favoritos, setFavoritos] = useState([]);
-  // const { state, dispatch } = useClinicaStates()
-  // console.log("Favoritos:")
-  // console.log(state.Favoritos)
+	const { state, dispatch } = useClinicaStates()
 
-  useEffect(() => {
-    const favsRecuperadoString = localStorage.getItem('favs');
-    console.log(favsRecuperadoString)
-    // Convertir la cadena JSON de nuevo a un objeto JavaScript
-    let recuperados = JSON.parse(favsRecuperadoString);
-    console.log(recuperados)
-    setFavoritos(recuperados)
+	return (
+		<>
+			<h1>Favoritos</h1>
+			{state.favoritos.map((fav) => {
+				return (
 
-  }, [])
+					<div key={fav.id} className={state.darkMode ? "card-dark" : "card-white"}>
+						Name: {fav.name}
+						<div>
+							<Link to={`/detalle/${fav.id}`}>
+								<p>  Username:{fav.username} - ID: {fav.id}
+								</p>
+							</Link>
+						</div>
+							<button
+								onClick={() =>
+									dispatch({ type: "BORRAR_FAVORITO_POR_ID", payload: fav.id })
+								}
+							>
+								Quitar de favoritos
+							</button>
+						</div>
+						);
+			})}
+						<button onClick={() => dispatch({ type: "BORRAR_TODOS_FAVORITOS" })}>
+							Borrar Favoritos
+						</button>
 
+						{/* este componente debe consumir los destacados del localStorage */}
+						{/* Deberan renderizar una Card por cada uno de ellos */}
+					</>
+				);
+			};
 
-  console.log(favoritos);
-
-
-
-
-
-
-  return (
-    <>
-      <h1>Dentistas Favs</h1>
-      <div>
-        <h1></h1>
-         {favoritos.map((favoritos) => {
-          return <div key={favoritos.id}>
-          <h1>{favoritos.name}</h1>
-          </div>
-        })} 
-        {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
-      </div>
-    </>
-  );
-};
-
-export default Favoritos;
+			export default Favoritos;
