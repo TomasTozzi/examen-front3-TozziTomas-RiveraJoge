@@ -14,9 +14,10 @@ function App() {
 				<Routes>
 					<Route element={<Layout />}>
 						<Route path="/" element={<Inicio />} />
-						<Route path="/favoritos" element={<Favoritos />} />
+						<Route path="/favs" element={<Favoritos />} />
 						<Route path="/Detalle/:id" element={<Detalle />} />
 						<Route path="/contacto" element={<Contacto />}/>
+						<Route path="/Detalle" element={<h1>No selecciono ningun odontolo. </h1>} />
 						<Route path="*" element={<h1>Pagina No Encontrada</h1>} />
 					</Route>
 				</Routes>

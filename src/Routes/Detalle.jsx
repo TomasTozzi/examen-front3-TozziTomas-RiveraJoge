@@ -24,7 +24,7 @@ const Detalle = () => {
 
 	return (
 		<>
-			<h1>Detail Dentist</h1>
+			<h1>Detalle de  Dentista</h1>
 			<div className='card-container'>
 			<div className={state.darkMode ? "card-container card-dark" : "card-container card-white" }>
 				<p>Name: {odontologoSeleccionado.name}</p>

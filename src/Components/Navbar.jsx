@@ -12,7 +12,7 @@ const Navbar = () => {
 			<h2><Link to="/">DH ODONTOLOGIA</Link></h2>
 				<ul>
 					<Link to="/">Home</Link>
-					<Link to="/favoritos">Favoritos</Link>
+					<Link to="/favs">Favoritos</Link>
 					<Link to="/detalle">Detalle</Link>
 					<Link to="/contacto">Contacto</Link>
 				</ul>

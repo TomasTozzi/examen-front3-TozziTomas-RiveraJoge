@@ -4,12 +4,14 @@ import { useState } from "react";
 
 const Card = ({ odonto }) => {
 	const { state, dispatch } = useClinicaStates();
-	
+
 	return (
 		<div key={odonto.id} className={state.darkMode ? "card-dark" : "card-white"}>
 			Name: {odonto.name}
+			<img src="../../public/images/doctor.jpg" alt="Doctor Image"></img>
 			<div>
 				<Link to={`/detalle/${odonto.id}`}>
+
 					<p>  Username:{odonto.username} - ID: {odonto.id}
 					</p>
 				</Link>
