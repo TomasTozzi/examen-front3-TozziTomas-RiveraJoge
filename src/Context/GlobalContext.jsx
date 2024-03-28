@@ -4,8 +4,10 @@ import axios from "axios";
 
 const ClinicaStates = createContext();
 
+const listaFav = JSON.parse(localStorage.getItem("favoritos"))
+
 let estadoInicial = {
-	favoritos: [],
+	favoritos: listaFav || [] ,
 	darkMode: false,
 	odontologos: [],
 };
@@ -50,6 +52,12 @@ const GlobalContext = ({ children }) => {
 		};
 		pedirOdontologos();
 	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("favoritos", JSON.stringify(state.favoritos));
+	}, [state.favoritos])
+
+
 	//funciones globales
 	let datos = { state, dispatch, odonto };
 	return (

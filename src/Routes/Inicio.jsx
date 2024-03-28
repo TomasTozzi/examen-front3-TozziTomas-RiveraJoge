@@ -7,7 +7,7 @@ const Inicio = () => {
 
   return (
     <>
-      <div className="card-container">
+      <div className={state.darkMode ? "card-container" : "card-container"}>
       {odonto.map((odonto) => {
       return <Card key={odonto.id} odonto={odonto}/>})}
       </div>

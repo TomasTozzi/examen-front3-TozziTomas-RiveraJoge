@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useClinicaStates } from "../Context/GlobalContext";
 
 
 const Formulario = () => {
@@ -11,6 +12,7 @@ const Formulario = () => {
 	})
 	const [error, setError] = useState(false);
 	const [mostrar, setMostrar] = useState(false)
+	const {state} = useClinicaStates()
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -25,7 +27,7 @@ const Formulario = () => {
 		const mailValidado = regex.test(datosContacto.mail);
 
 		//Validar inputs.
-		if (datosContacto.nombre.length < 6
+		if (datosContacto.nombre.length < 3
 			|| datosContacto.nombre.length > 20
 			|| datosContacto.apellido.length < 3
 			|| datosContacto.apellido.length > 20
@@ -38,21 +40,18 @@ const Formulario = () => {
 		}
 		else {
 			setMostrar(true);
-			console.log("Se envio su mensaje, nos contactaremos a la novedad.")
+			console.log("Se envio su mensaje, nos contactaremos a la brevedad.")
+			console.log(datosContacto);
 		}
-
-
-
-
 	}
-
 	//Aqui deberan implementar el form completo con sus validaciones
 	return (
 		<>
 		{error && <h3>Por favor verifique su información nuevamente. </h3>}
-		{mostrar	?
+		{mostrar ? 
 		<h2>Gracias {datosContacto.nombre}, te contactaremos cuando antes vía mail.</h2>
 		:
+		<div className={state.darkMode ? "form-container form-container-dark" :"form-container form-container-white"}>
 		<form >
 			<div>
 				<label htmlFor="nombre">Nombre:</label>
@@ -98,8 +97,9 @@ const Formulario = () => {
 					required
 				/>
 			</div>
-			<button onClick={handleSubmit}>Enviar</button>
+			<button className={state.darkMode ? "button-common-dark" : "button-common-white"} onClick={handleSubmit}>Enviar</button>
 		</form>
+		</div>
 		}
 		</>
 	);
