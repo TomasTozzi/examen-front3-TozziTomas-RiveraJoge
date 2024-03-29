@@ -4,10 +4,7 @@ Examen Final de Frontend III
 
 # Tomas Tozzi - Jorge Rivera
 
-1. Se crea el Browser Routes
-2. Se agrega los Link.
-3. Se crea el formulario de contacto. 
-4. Se agregan las validaciones.
+
 
 ## Indice
 
